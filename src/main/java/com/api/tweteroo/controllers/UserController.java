@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService service;
@@ -17,7 +16,7 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping("/sign-up")
     @ResponseStatus(value = HttpStatus.CREATED)
     public void add(@RequestBody @Valid UserDTO req){
         service.add(req);
