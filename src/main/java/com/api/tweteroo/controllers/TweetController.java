@@ -46,4 +46,11 @@ public class TweetController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @GetMapping("{username}")
+    public ResponseEntity<List<TweetResponse>> getByUsername(@PathVariable String username) {
+        Optional<User> userOptional = service.findByUsername(username);
+
+        return userOptional.map(user -> ResponseEntity.ok().body(service.findAllByUsername(user.getId())))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }

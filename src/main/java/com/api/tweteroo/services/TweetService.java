@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +40,9 @@ public class TweetService {
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
 
+    }
+
+    public List<TweetResponse> findAllByUsername(Long user_id) {
+        return userRepository.findAllTweets(user_id);
     }
 }
