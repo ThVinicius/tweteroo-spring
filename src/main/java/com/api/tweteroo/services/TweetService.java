@@ -5,7 +5,10 @@ import com.api.tweteroo.models.Tweet;
 import com.api.tweteroo.models.User;
 import com.api.tweteroo.repositories.TweetRepository;
 import com.api.tweteroo.repositories.UserRepository;
+import com.api.tweteroo.response.TweetResponse;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -23,13 +26,17 @@ public class TweetService {
 
     @Transactional
     public void save(TweetDTO tweetDTO, User user) {
-        Tweet tweet = new Tweet(tweetDTO);
-        tweet.setUser(user);
+        Tweet tweet = new Tweet(tweetDTO, user);
 
         repository.save(tweet);
     }
 
-    public Optional<User> findByUsername(String username){
+    public Page<TweetResponse> findAll(Pageable pageable) {
+
+        return repository.findAllWithPagination(pageable);
+    }
+
+    public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
 
     }
