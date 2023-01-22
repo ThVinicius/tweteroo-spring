@@ -1,8 +1,8 @@
 package com.api.tweteroo.controllers;
 
-import com.api.tweteroo.dto.TweetDTO;
+import com.api.tweteroo.dto.request.TweetDTO;
+import com.api.tweteroo.dto.response.UserTweet;
 import com.api.tweteroo.models.User;
-import com.api.tweteroo.response.TweetResponse;
 import com.api.tweteroo.services.TweetService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
@@ -29,7 +29,7 @@ public class TweetController {
     }
 
     @GetMapping
-    public Page<TweetResponse> getAll(@PageableDefault(size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+    public Page<UserTweet> getAll(@PageableDefault(size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         return service.findAll(pageable);
     }
 
@@ -47,7 +47,7 @@ public class TweetController {
     }
 
     @GetMapping("{username}")
-    public ResponseEntity<List<TweetResponse>> getByUsername(@PathVariable String username) {
+    public ResponseEntity<List<UserTweet>> getByUsername(@PathVariable String username) {
         Optional<User> userOptional = service.findByUsername(username);
 
         return userOptional.map(user -> ResponseEntity.ok().body(service.findAllByUsername(user.getId())))

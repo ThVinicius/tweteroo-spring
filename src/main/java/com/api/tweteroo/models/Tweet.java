@@ -1,6 +1,6 @@
 package com.api.tweteroo.models;
 
-import com.api.tweteroo.dto.TweetDTO;
+import com.api.tweteroo.dto.request.TweetDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

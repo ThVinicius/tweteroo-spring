@@ -1,7 +1,7 @@
 package com.api.tweteroo.repositories;
 
+import com.api.tweteroo.dto.response.UserTweet;
 import com.api.tweteroo.models.User;
-import com.api.tweteroo.response.TweetResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,5 +18,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "JOIN User u ON u.id = t.user.id " +
             "WHERE u.id = :user_id " +
             "ORDER BY t.id DESC")
-    List<TweetResponse> findAllTweets(@Param("user_id") Long user_id);
+    List<UserTweet> findAllTweets(@Param("user_id") Long user_id);
 }

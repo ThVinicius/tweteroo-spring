@@ -1,6 +1,6 @@
 package com.api.tweteroo.controllers;
 
-import com.api.tweteroo.dto.UserDTO;
+import com.api.tweteroo.dto.request.UserDTO;
 import com.api.tweteroo.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -12,13 +12,13 @@ public class UserController {
 
     private final UserService service;
 
-    public UserController(UserService service){
+    public UserController(UserService service) {
         this.service = service;
     }
 
     @PostMapping("/sign-up")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void add(@RequestBody @Valid UserDTO req){
+    public void add(@RequestBody @Valid UserDTO req) {
         service.add(req);
     }
 }

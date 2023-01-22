@@ -1,11 +1,11 @@
 package com.api.tweteroo.services;
 
-import com.api.tweteroo.dto.TweetDTO;
+import com.api.tweteroo.dto.request.TweetDTO;
+import com.api.tweteroo.dto.response.UserTweet;
 import com.api.tweteroo.models.Tweet;
 import com.api.tweteroo.models.User;
 import com.api.tweteroo.repositories.TweetRepository;
 import com.api.tweteroo.repositories.UserRepository;
-import com.api.tweteroo.response.TweetResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +32,7 @@ public class TweetService {
         repository.save(tweet);
     }
 
-    public Page<TweetResponse> findAll(Pageable pageable) {
+    public Page<UserTweet> findAll(Pageable pageable) {
 
         return repository.findAllWithPagination(pageable);
     }
@@ -42,7 +42,7 @@ public class TweetService {
 
     }
 
-    public List<TweetResponse> findAllByUsername(Long user_id) {
+    public List<UserTweet> findAllByUsername(Long user_id) {
         return userRepository.findAllTweets(user_id);
     }
 }

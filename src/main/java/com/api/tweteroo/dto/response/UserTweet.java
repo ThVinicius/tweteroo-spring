@@ -1,11 +1,11 @@
-package com.api.tweteroo.response;
+package com.api.tweteroo.dto.response;
 
 
-
-
-public interface TweetResponse {
+public interface UserTweet {
     String getUsername();
+
     String getAvatar();
+
     String getTweet();
 
 

@@ -1,6 +1,6 @@
 package com.api.tweteroo.services;
 
-import com.api.tweteroo.dto.UserDTO;
+import com.api.tweteroo.dto.request.UserDTO;
 import com.api.tweteroo.models.User;
 import com.api.tweteroo.repositories.UserRepository;
 import org.springframework.stereotype.Service;
