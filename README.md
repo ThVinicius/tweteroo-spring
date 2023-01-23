@@ -110,7 +110,7 @@ Enviar no body da requisição
 
 #
 
-<div id='post-tweets'/>
+<div id='get-tweets'/>
 
 ### Buscar todos os tweets
 
@@ -196,7 +196,7 @@ Vá para o diretório do projeto
 Faça o build do container
 
 ```bash
-  docker build -t tweteroo/srping:1.0 .
+  docker build -t tweteroo/spring:1.0 .
 ```
 
 Execute o container
