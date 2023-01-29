@@ -19,6 +19,7 @@
 
 - [Descrição](#description)
 - [Deploy](#deploy)
+- [FrontEnd do projeto](#front-end)
 - [Documentação da API](#api-reference)
     - [Rota de autenticação](#authentication-routes)
         - [Acessar o chat](#sign-up)
@@ -45,13 +46,27 @@ Tweteroo é uma API de chat simples.
 
 </br>
 
-<div id='api-reference'/>
-
 <div id='deploy'/>
 
 # Deploy
 
 - [Link Deploy](https://tweteroo-spring.onrender.com)
+
+<div id='front-end'/>
+
+# FrontEnd do projeto
+
+Na pasta raiz do projeto encontra-se o frontEnd: `frontEnd - tweteroo.zip`
+
+- Para utilizá-lo faça os seguintes passos:
+    - descompacte o arquivo
+    - entre na pasta do arquivo e inicie o comando para instalar as dependências
+        - `npm install`
+    - inicie o servidor com o comando
+        - `npm run dev`
+        - o servidor ficará disponível no endereço: `http://localhost:1234`
+
+<div id='api-reference'/>
 
 # Documentação da API
 
